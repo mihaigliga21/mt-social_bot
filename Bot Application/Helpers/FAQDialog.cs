@@ -19,6 +19,7 @@ namespace Bot_Application.Helpers
 
         private async Task MessageRecievedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
+
             var message = await result;
             if (IsQuestion(message.Text))
                 await context.PostAsync("This looks like a question");
