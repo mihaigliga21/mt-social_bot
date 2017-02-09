@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Net.Http;
@@ -12,6 +14,52 @@ namespace Bot_Application.Helpers
 {
     public class BingSearchWeb
     {
+        private static string _imageSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/images/search";
+        private string _autoSuggestionEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/suggestions";
+        private string _newsSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/news/search";
+
+        private static HttpClient AutoSuggestionClient { get; set; }
+        private static HttpClient SearchClient { get; set; }
+
+        private static string _autoSuggestionApiKey;
+        public static string AutoSuggestionApiKey
+        {
+            get { return _autoSuggestionApiKey; }
+            set
+            {
+                var changed = _autoSuggestionApiKey != value;
+                _autoSuggestionApiKey = value;
+                if (changed)
+                {
+                    InitializeBingClients();
+                }
+            }
+        }
+
+        private static string _searchApiKey;
+        public static string SearchApiKey
+        {
+            get { return _searchApiKey; }
+            set
+            {
+                var changed = _searchApiKey != value;
+                _searchApiKey = value;
+                if (changed)
+                {
+                    InitializeBingClients();
+                }
+            }
+        }
+
+        private static void InitializeBingClients()
+        {
+            AutoSuggestionClient = new HttpClient();
+            AutoSuggestionClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", AutoSuggestionApiKey);
+
+            SearchClient = new HttpClient();
+            SearchClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SearchApiKey);
+        }
+
         public async Task<string> MakeRequest(string phrase)
         {
             var client = new HttpClient();
@@ -41,5 +89,26 @@ namespace Bot_Application.Helpers
 
             return response2Return;
         }
+
+        //search image
+        public static async Task<IEnumerable<string>> GetImageSearchResults(string query, string imageContent = "Face", int count = 20, int offset = 0)
+        {
+            List<string> urls = new List<string>();
+
+            var result = await SearchClient.GetAsync(string.Format("{0}?q={1}&safeSearch=Strict&count={2}&offset={3}", _imageSearchEndPoint, WebUtility.UrlEncode(query), count, offset));
+            result.EnsureSuccessStatusCode();
+            var json = await result.Content.ReadAsStringAsync();
+            dynamic data = JObject.Parse(json);
+            if (data.value != null && data.value.Count > 0)
+            {
+                for (int i = 0; i < data.value.Count; i++)
+                {
+                    urls.Add(data.value[i].contentUrl.Value);
+                }
+            }
+
+            return urls;
+        }
+
     }
 }

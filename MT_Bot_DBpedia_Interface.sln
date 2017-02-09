@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26127.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT_Bot_DBpedia_Interface", "MT_Bot_DBpedia_Interface\MT_Bot_DBpedia_Interface.csproj", "{176A9592-7710-4A45-AC54-9CB9FBCCE2AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot Application", "Bot Application\Bot Application.csproj", "{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot_Tests", "Bot_Tests\Bot_Tests.csproj", "{4C37ACB4-3E74-4CE3-88B8-EE3647003CE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C37ACB4-3E74-4CE3-88B8-EE3647003CE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C37ACB4-3E74-4CE3-88B8-EE3647003CE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C37ACB4-3E74-4CE3-88B8-EE3647003CE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C37ACB4-3E74-4CE3-88B8-EE3647003CE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

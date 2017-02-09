@@ -128,10 +128,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BasicMakerDialog.cs" />
     <Compile Include="Helpers\BingSearchWeb.cs" />
     <Compile Include="Helpers\FAQDialog.cs" />
+    <Compile Include="Helpers\GoogleLocationDialog.cs" />
     <Compile Include="Helpers\RootHelper.cs" />
+    <Compile Include="Helpers\TextAnalytics.cs" />
     <Compile Include="Model\BingSearchModel.cs" />
+    <Compile Include="Model\TextAnalyticsModel.cs" />
     <Compile Include="Model\WordAnalyserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

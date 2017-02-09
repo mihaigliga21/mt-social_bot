@@ -120,4 +120,10 @@
   <data name="BingApiKey" xml:space="preserve">
     <value>0312087c68bd4082bfa33f8fa3df632a</value>
   </data>
+  <data name="GoogleLocationApiKey" xml:space="preserve">
+    <value>AIzaSyBPZ4VtdG1Holbu2EYlNVHekOGYz5DnA84</value>
+  </data>
+  <data name="TextAnalyticsApiKey" xml:space="preserve">
+    <value>8b25ac7e62f149deae6492d1d603cb4a</value>
+  </data>
 </root>

@@ -68,5 +68,23 @@ namespace Bot_Application.Properties {
                 return ResourceManager.GetString("BingApiKey", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AIzaSyBPZ4VtdG1Holbu2EYlNVHekOGYz5DnA84.
+        /// </summary>
+        internal static string GoogleLocationApiKey {
+            get {
+                return ResourceManager.GetString("GoogleLocationApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8b25ac7e62f149deae6492d1d603cb4a.
+        /// </summary>
+        internal static string TextAnalyticsApiKey {
+            get {
+                return ResourceManager.GetString("TextAnalyticsApiKey", resourceCulture);
+            }
+        }
     }
 }
