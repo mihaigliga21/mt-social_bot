@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Script.Serialization;
-using Bot_Application.Model;
 
-namespace Bot_Application.Helpers
+namespace Bot_Application.Services
 {
-    public class GoogleLocationDialog
+    public class GoogleLocationService
     {
         public static Coordinate GetCoordinates(string region)
         {

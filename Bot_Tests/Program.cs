@@ -26,7 +26,8 @@ namespace Bot_Tests
         private const int NumLanguages = 1;
         static void Main(string[] args)
         {
-            MakeRequests();
+            //MakeRequests();
+            MakeRequestLinguistic();
             Console.WriteLine("Hit ENTER to exit...");
             Console.ReadLine();
         }
@@ -74,6 +75,33 @@ namespace Bot_Tests
                 var response = await client.PostAsync(uri, content);
                 return await response.Content.ReadAsStringAsync();
             }
+        }
+
+        static async void MakeRequestLinguistic()
+        {
+            var client = new HttpClient();
+            var queryString = HttpUtility.ParseQueryString(String.Empty);
+
+            // Request headers
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "9f3d41718e8842fa80e533a204f6fde6");
+
+            var uri = "https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze?" + queryString;            
+
+            // Request body
+            byte[] byteData = Encoding.UTF8.GetBytes("{\"language\": \"en\", " +
+                                                     "\"analyzerIds\" : [\"4fa79af1-f22c-408d-98bb-b7d7aeef7f04\", \"22a6b758-420f-4745-8a3c-46835a67c0d2\"]," +
+                                                     "\"text\": \"where is Romania\"}");
+
+            var response = await CallEndpoint(client, uri, byteData);
+            Console.WriteLine("\nDetect analitics response:\n" + response);
+
+            /*using (var content = new ByteArrayContent(byteData))
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                response = await client.PostAsync(uri, content);
+                Console.WriteLine("\nDetect analitics response:\n" + response);
+            }*/
+
         }
     }
 }

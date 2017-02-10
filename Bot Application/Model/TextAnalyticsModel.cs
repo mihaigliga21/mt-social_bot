@@ -37,5 +37,10 @@ namespace Bot_Application.Model
         public List<object> errors { get; set; }
     }
 
+    public class LinguisticAnalitycModel
+    {
+        public string analyzerId { get; set; }
+        public List<object> result { get; set; }
+    }
 
 }

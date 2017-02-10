@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
@@ -10,9 +8,9 @@ using System.Web.Script.Serialization;
 using Bot_Application.Model;
 using Newtonsoft.Json.Linq;
 
-namespace Bot_Application.Helpers
+namespace Bot_Application.Services
 {
-    public class BingSearchWeb
+    public class BingService
     {
         private static string _imageSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/images/search";
         private string _autoSuggestionEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/suggestions";

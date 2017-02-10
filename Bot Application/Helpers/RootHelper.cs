@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Script.Serialization;
 using Bot_Application.Model;
+using Bot_Application.Services;
 using MT_Bot_DBpedia_Interface.Helpers;
 using Microsoft.Bot.Builder.Location;
 using Microsoft.Bot.Builder.Location.Bing;

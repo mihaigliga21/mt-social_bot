@@ -123,6 +123,9 @@
   <data name="GoogleLocationApiKey" xml:space="preserve">
     <value>AIzaSyBPZ4VtdG1Holbu2EYlNVHekOGYz5DnA84</value>
   </data>
+  <data name="LinguisticAnalysisApiKey" xml:space="preserve">
+    <value>9f3d41718e8842fa80e533a204f6fde6</value>
+  </data>
   <data name="TextAnalyticsApiKey" xml:space="preserve">
     <value>8b25ac7e62f149deae6492d1d603cb4a</value>
   </data>

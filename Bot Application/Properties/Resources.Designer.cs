@@ -79,6 +79,15 @@ namespace Bot_Application.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 9f3d41718e8842fa80e533a204f6fde6.
+        /// </summary>
+        internal static string LinguisticAnalysisApiKey {
+            get {
+                return ResourceManager.GetString("LinguisticAnalysisApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 8b25ac7e62f149deae6492d1d603cb4a.
         /// </summary>
         internal static string TextAnalyticsApiKey {

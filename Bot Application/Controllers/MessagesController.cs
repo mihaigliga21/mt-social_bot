@@ -16,29 +16,17 @@ namespace Bot_Application
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        private readonly RootHelper _rootHelper = new RootHelper();
-
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
-            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));           
-          
+            ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
+
             if (activity.Type == ActivityTypes.Message)
-            {                
-                //ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-                // calculate something for us to return
-                //int length = (activity.Text ?? string.Empty).Length;               
-                //var responseAiml = _rootHelper.MainRoot(activity.Text);
-
+            {
                 await Conversation.SendAsync(activity, () => new FaqDialog());
-                // return our reply to the user
-                /*var resp = Request.CreateResponse(HttpStatusCode.OK);
-
-                Activity reply = activity.CreateReply(resp.ReasonPhrase);
-                await connector.Conversations.ReplyToActivityAsync(reply);*/
             }
             else
             {
@@ -77,6 +65,6 @@ namespace Bot_Application
             }
 
             return null;
-        }     
+        }
     }
 }
