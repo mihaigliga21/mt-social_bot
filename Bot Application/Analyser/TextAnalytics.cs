@@ -14,9 +14,7 @@ namespace Bot_Application.Analyser
         /// <summary>
         /// Azure portal URL.
         /// </summary>
-        private const string BaseUrl = "https://westus.api.cognitive.microsoft.com/";
-
-        private const string AccountKey = "8b25ac7e62f149deae6492d1d603cb4a";     
+        private static string BaseUrl = Properties.Resources.CognitiveServices; 
 
         public static async Task<HttpResponseMessage> CallEndpoint(HttpClient client, string uri, byte[] byteData)
         {
@@ -88,7 +86,7 @@ namespace Bot_Application.Analyser
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "9f3d41718e8842fa80e533a204f6fde6");
 
-            var uri = "https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze?" + queryString;
+            var uri = BaseUrl + "/linguistics/v1.0/analyze?" + queryString;
 
             // Request body
             byte[] byteData = Encoding.UTF8.GetBytes("{\"language\": \"en\", " +

@@ -61,11 +61,29 @@ namespace Bot_Application.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://mt-aiml.herokuapp.com/getResponse/.
+        /// </summary>
+        internal static string AimlServiceUrl {
+            get {
+                return ResourceManager.GetString("AimlServiceUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 0312087c68bd4082bfa33f8fa3df632a.
         /// </summary>
         internal static string BingApiKey {
             get {
                 return ResourceManager.GetString("BingApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://westus.api.cognitive.microsoft.com/.
+        /// </summary>
+        internal static string CognitiveServices {
+            get {
+                return ResourceManager.GetString("CognitiveServices", resourceCulture);
             }
         }
         

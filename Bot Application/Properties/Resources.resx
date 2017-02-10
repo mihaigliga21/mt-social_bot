@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AimlServiceUrl" xml:space="preserve">
+    <value>https://mt-aiml.herokuapp.com/getResponse/</value>
+  </data>
   <data name="BingApiKey" xml:space="preserve">
     <value>0312087c68bd4082bfa33f8fa3df632a</value>
+  </data>
+  <data name="CognitiveServices" xml:space="preserve">
+    <value>https://westus.api.cognitive.microsoft.com/</value>
   </data>
   <data name="GoogleLocationApiKey" xml:space="preserve">
     <value>AIzaSyBPZ4VtdG1Holbu2EYlNVHekOGYz5DnA84</value>

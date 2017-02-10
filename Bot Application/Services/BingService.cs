@@ -12,6 +12,7 @@ namespace Bot_Application.Services
 {
     public class BingService
     {
+        #region privates
         private static string _imageSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/images/search";
         private string _autoSuggestionEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/suggestions";
         private string _newsSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v5.0/news/search";
@@ -35,6 +36,10 @@ namespace Bot_Application.Services
         }
 
         private static string _searchApiKey;
+        
+
+        #endregion
+
         public static string SearchApiKey
         {
             get { return _searchApiKey; }
@@ -106,7 +111,6 @@ namespace Bot_Application.Services
             }
 
             return urls;
-        }
-
+        }        
     }
 }

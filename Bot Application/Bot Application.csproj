@@ -128,6 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\BingHelper.cs" />
+    <Compile Include="Helpers\GoogleLocationHelper.cs" />
+    <Compile Include="Model\GoogleLocationModel.cs" />
     <Compile Include="Services\BingService.cs" />
     <Compile Include="Helpers\FAQDialog.cs" />
     <Compile Include="Services\DbAimlService.cs" />

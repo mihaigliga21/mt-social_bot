@@ -13,7 +13,7 @@ namespace Bot_Application.Services
         {
             try
             {
-                var path = "https://mt-aiml.herokuapp.com/getResponse/" + message;
+                var path = Properties.Resources.AimlServiceUrl + message;
 
                 // Create a request for the URL.         
                 WebRequest request = WebRequest.Create(path);
