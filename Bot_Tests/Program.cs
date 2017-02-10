@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace Bot_Tests
 {
@@ -93,7 +95,8 @@ namespace Bot_Tests
                                                      "\"text\": \"where is Romania\"}");
 
             var response = await CallEndpoint(client, uri, byteData);
-            Console.WriteLine("\nDetect analitics response:\n" + response);
+            Console.WriteLine("\nDetect analitics response:\n" + response);            
+            var analytic = new JavaScriptSerializer().Deserialize<List<LinguisticAnalitycModel>>(response);
 
             /*using (var content = new ByteArrayContent(byteData))
             {
@@ -103,5 +106,11 @@ namespace Bot_Tests
             }*/
 
         }
+    }
+
+    public class LinguisticAnalitycModel
+    {
+        public string analyzerId { get; set; }
+        public List<object> result { get; set; }
     }
 }

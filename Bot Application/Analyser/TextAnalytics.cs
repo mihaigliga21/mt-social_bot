@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Bot_Application.Analyser
         /// <summary>
         /// Azure portal URL.
         /// </summary>
-        private static string BaseUrl = Properties.Resources.CognitiveServices; 
+        private const string BaseUrl = "https://westus.api.cognitive.microsoft.com/"; 
 
         public static async Task<HttpResponseMessage> CallEndpoint(HttpClient client, string uri, byte[] byteData)
         {
@@ -23,7 +24,7 @@ namespace Bot_Application.Analyser
                 using (var content = new ByteArrayContent(byteData))
                 {
                     content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                    var response = await client.PostAsync(uri, content);                   
+                    var response = await client.PostAsync(uri, content);
                     return response;
                 }
             }
@@ -51,7 +52,6 @@ namespace Bot_Application.Analyser
                 var uri = "text/analytics/v2.0/keyPhrases";
                 var response = await CallEndpoint(client, uri, byteData);
 
-
                 var json = await response.Content.ReadAsStringAsync();
 
                 var resdeser = new JavaScriptSerializer().Deserialize<KeyPhrase>(json);
@@ -78,7 +78,7 @@ namespace Bot_Application.Analyser
             }
         }
 
-        public static async Task<LinguisticAnalitycModel> GetLinguisticAnalytic(string message)
+        public static async Task<List<LinguisticAnalitycModel>> GetLinguisticAnalytic(string message)
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(String.Empty);
@@ -95,7 +95,7 @@ namespace Bot_Application.Analyser
 
             var response = await CallEndpoint(client, uri, byteData);
             var json = await response.Content.ReadAsStringAsync();
-            var analytic = new JavaScriptSerializer().Deserialize<LinguisticAnalitycModel>(json);
+            var analytic = new JavaScriptSerializer().Deserialize<List<LinguisticAnalitycModel>>(json);
 
             return analytic;
         }
